@@ -223,6 +223,43 @@
       <!-- TAB 1: COPY & SETUP FIELDS -->
       <div id="tab-content-copy" class="space-y-3">
         
+        <!-- Field 0: Channel Email & Password (Login Credentials) -->
+        <div class="ecommerce-card rounded-2xl p-3.5 space-y-2 border-purple-200">
+          <div class="flex items-center justify-between">
+            <label class="text-[11px] font-bold text-slate-700 flex items-center gap-1.5">
+              <span class="w-5 h-5 rounded-md bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs">✉️</span>
+              Login Email (Instagram Signup में भरें)
+            </label>
+            <span class="text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-extrabold border border-emerald-200">नियंत्रित Email</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <input type="text" id="input-email" readonly class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 font-mono font-bold tracking-wide focus:outline-none select-all">
+            <button onclick="copyField('input-email', 'Email')" class="shrink-0 px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white text-xs font-extrabold flex items-center gap-1 shadow-sm transition">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+              </svg>
+              Copy
+            </button>
+          </div>
+          
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
+            <label class="text-[11px] font-bold text-slate-700 flex items-center gap-1.5">
+              <span class="w-5 h-5 rounded-md bg-amber-100 text-amber-800 flex items-center justify-center text-xs">🔑</span>
+              Password (पासवर्ड)
+            </label>
+            <span class="text-[10px] text-slate-400 font-semibold">अकाउंट सुरक्षा</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <input type="text" id="input-password" readonly class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 font-mono font-bold tracking-wide focus:outline-none select-all">
+            <button onclick="copyField('input-password', 'Password')" class="shrink-0 px-3.5 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 active:scale-95 text-white text-xs font-extrabold flex items-center gap-1 shadow-sm transition">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+              </svg>
+              Copy
+            </button>
+          </div>
+        </div>
+
         <!-- Field 1: Username -->
         <div class="ecommerce-card rounded-2xl p-3.5 space-y-1.5">
           <div class="flex items-center justify-between">
@@ -417,7 +454,9 @@
 🖤 हर एहसास को मिलेंगे अल्फ़ाज़
 ✨ जो दिल से जुड़े, वो साथ रहें`,
         target: "18–30 वर्ष, अधूरा प्यार, किसी की याद और अनकही भावनाओं से जुड़ने वाले दर्शक।",
-        angle: "ऐसी अनकही भावनाएँ जिनसे दर्शक जुड़ सकें और किसी खास इंसान को भेजना चाहें।"
+        angle: "ऐसी अनकही भावनाएँ जिनसे दर्शक जुड़ सकें और किसी खास इंसान को भेजना चाहें।",
+        email: "mohit12836+Heartbreak@gmail.com",
+        password: "Heartbreak@108"
       },
       {
         id: 2,
@@ -435,7 +474,9 @@
 💯 हर दिन खुद के लिए एक सीख
 ✨ खुद को चुनना भी ज़रूरी है`,
         target: "18–35 वर्ष, रिश्तों में सम्मान, Boundaries और Self-Respect सीखने में रुचि रखने वाले युवा।",
-        angle: "कम शब्दों में आत्मसम्मान, रिश्तों की सीमाएँ और आत्मविश्वास से जुड़ी बातें।"
+        angle: "कम शब्दों में आत्मसम्मान, रिश्तों की सीमाएँ और आत्मविश्वास से जुड़ी बातें।",
+        email: "mohit12836+SelfRespect@gmail.com",
+        password: "SelfRespect@108"
       },
       {
         id: 3,
@@ -453,7 +494,9 @@
 🫶 जो कह नहीं पाते, यहाँ पढ़ोगे
 ✨ हर रोज़ दिल की एक बात`,
         target: "18–32 वर्ष, Overthinking, अकेलापन और भावनाओं को समझने वाले विचारों में रुचि रखने वाले दर्शक।",
-        angle: "ऐसी छोटी बातें जिनमें लोग अपनी भावनाएँ पहचान सकें। मानसिक स्वास्थ्य के झूठे दावे नहीं करेंगे।"
+        angle: "ऐसी छोटी बातें जिनमें लोग अपनी भावनाएँ पहचान सकें। मानसिक स्वास्थ्य के झूठे दावे नहीं करेंगे।",
+        email: "mohit12836+Overthinking@gmail.com",
+        password: "Overthinking@108"
       },
       {
         id: 4,
@@ -471,7 +514,9 @@
 💯 सीधी बात, बिना दिखावे
 🔥 सच को समझो, सोच बदलो`,
         target: "20–40 वर्ष, जिंदगी के अनुभव, भरोसा, व्यवहार और सामाजिक रिश्तों की वास्तविकताओं में रुचि रखने वाले दर्शक।",
-        angle: "Expectation vs Reality, Life Lessons और लोगों के व्यवहार पर विचारोत्तेजक बातें।"
+        angle: "Expectation vs Reality, Life Lessons और लोगों के व्यवहार पर विचारोत्तेजक बातें।",
+        email: "mohit12836+LifeReality@gmail.com",
+        password: "LifeReality@108"
       },
       {
         id: 5,
@@ -489,7 +534,9 @@
 ✨ हर रोज़ कुछ अच्छे अल्फ़ाज़
 🕊️ एक पल अपने लिए भी`,
         target: "20–40 वर्ष, रोजमर्रा के तनाव के बीच शांत, सकारात्मक और भावनात्मक रूप से सहारा देने वाले विचार।",
-        angle: "छोटी, शांतिपूर्ण, उम्मीद जगाने वाली बातें जिन्हें दर्शक Save करके दोबारा पढ़ना चाहें।"
+        angle: "छोटी, शांतिपूर्ण, उम्मीद जगाने वाली बातें जिन्हें दर्शक Save करके दोबारा पढ़ना चाहें।",
+        email: "mohit12836+PeaceHealing@gmail.com",
+        password: "PeaceHealing@108"
       }
     ];
 
@@ -537,6 +584,8 @@
       document.getElementById('input-username').value = ch.username;
       document.getElementById('input-name').value = ch.name;
       document.getElementById('input-bio').value = ch.bio;
+      document.getElementById('input-email').value = ch.email;
+      document.getElementById('input-password').value = ch.password;
 
       document.getElementById('detail-target').innerText = ch.target;
       document.getElementById('detail-angle').innerText = ch.angle;
