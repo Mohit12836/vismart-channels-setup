@@ -35,22 +35,26 @@
       -webkit-tap-highlight-color: transparent;
     }
     body {
-      background: radial-gradient(circle at 50% 0%, #1e103c 0%, #0c081e 50%, #06040d 100%);
+      background: #332d4a; /* Premium soft plum-slate: neither pure white nor pitch black */
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(147, 51, 234, 0.25) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(236, 72, 153, 0.22) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(99, 102, 241, 0.2) 0px, transparent 50%);
       min-height: 100vh;
-      color: #f1f5f9;
+      color: #f8fafc;
       font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', sans-serif;
     }
     .glass-card {
-      background: rgba(22, 15, 45, 0.72);
+      background: rgba(67, 56, 96, 0.65);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(168, 85, 247, 0.2);
+      border: 1px solid rgba(216, 180, 254, 0.25);
     }
     .glass-glow {
-      box-shadow: 0 8px 32px 0 rgba(168, 85, 247, 0.18);
+      box-shadow: 0 10px 30px -5px rgba(24, 16, 48, 0.35);
     }
     .neon-border {
-      border: 1px solid rgba(236, 72, 153, 0.35);
+      border: 1px solid rgba(244, 114, 182, 0.4);
     }
     .toast-animate {
       animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -75,26 +79,26 @@
   <div class="w-full max-w-md min-h-screen flex flex-col relative pb-28">
 
     <!-- Top Status / Branding Bar -->
-    <header class="sticky top-0 z-40 bg-[#0c081e]/85 backdrop-blur-md border-b border-purple-500/15 px-4 py-3 flex items-center justify-between">
+    <header class="sticky top-0 z-40 bg-[#322a4d]/90 backdrop-blur-md border-b border-purple-300/20 px-4 py-3 flex items-center justify-between shadow-sm">
       <div id="header-left" class="flex items-center gap-2.5">
-        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-purple-600 via-pink-500 to-indigo-500 flex items-center justify-center shadow-lg shadow-purple-500/30">
+        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-purple-500 via-pink-500 to-indigo-500 flex items-center justify-center shadow-md">
           <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
             <path d="M8 5v14l11-7z"/>
           </svg>
         </div>
         <div>
-          <h1 class="text-base font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-pink-200 to-white flex items-center gap-1.5">
+          <h1 class="text-base font-extrabold tracking-wide text-white flex items-center gap-1.5">
             VISMART
-            <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 font-semibold border border-purple-500/30">5 Channels</span>
+            <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-purple-400/25 text-purple-200 font-bold border border-purple-300/30">5 Channels</span>
           </h1>
-          <p class="text-[11px] text-purple-300/70 font-medium -mt-0.5">Instagram Channel Setup App</p>
+          <p class="text-[11px] text-purple-200 font-medium -mt-0.5">Instagram Channel Setup App</p>
         </div>
       </div>
 
       <div class="flex items-center gap-2">
         <a href="https://instagram.com" target="_blank" class="w-8 h-8 rounded-xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 p-0.5 flex items-center justify-center shadow-md active:scale-95 transition-transform" title="Open Instagram">
-          <div class="w-full h-full bg-[#130d2a] rounded-[10px] flex items-center justify-center">
-            <svg class="w-4 h-4 text-pink-400" fill="currentColor" viewBox="0 0 24 24">
+          <div class="w-full h-full bg-[#3d335c] rounded-[10px] flex items-center justify-center">
+            <svg class="w-4 h-4 text-pink-300" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
             </svg>
           </div>
@@ -106,14 +110,14 @@
     <main id="view-home" class="px-4 pt-3 space-y-3.5">
       
       <!-- Hero Banner -->
-      <div class="relative overflow-hidden rounded-2xl p-4 bg-gradient-to-br from-purple-900/60 via-purple-950/40 to-pink-950/40 border border-purple-500/30 glass-glow">
+      <div class="relative overflow-hidden rounded-2xl p-4 bg-gradient-to-br from-purple-800/40 via-purple-700/25 to-pink-800/30 border border-purple-300/30 shadow-lg">
         <div class="flex items-start justify-between">
           <div class="space-y-1">
-            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-bold bg-amber-400/20 text-amber-300 border border-amber-400/30">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-400 text-slate-900 shadow-sm">
               👑 5 Viral Text-Reel Channels
             </span>
             <h2 class="text-lg font-bold text-white pt-1">बस Copy करें और Channels बनाएँ</h2>
-            <p class="text-xs text-purple-200/80 leading-relaxed">
+            <p class="text-xs text-purple-100 leading-relaxed font-normal">
               एक सुंदर Background + 2–4 लाइन Text + Music. बिना चेहरे या कैमरे के वायरल होने वाला फॉर्मूला।
             </p>
           </div>
@@ -126,29 +130,29 @@
       </div>
 
       <!-- Quick 4-Step Process Guide Box -->
-      <div class="rounded-2xl p-4 bg-[#110b27]/80 border border-purple-500/20 space-y-3">
+      <div class="rounded-2xl p-4 bg-[#2b2442]/80 border border-purple-300/20 space-y-3 shadow-md">
         <div class="flex items-center justify-between">
-          <h3 class="text-xs font-bold text-purple-200 flex items-center gap-1.5">
+          <h3 class="text-xs font-bold text-purple-100 flex items-center gap-1.5">
             🚀 Setup Process (हर चैनल के लिए)
           </h3>
-          <span class="text-[10px] text-purple-400 font-medium">100% Faceless</span>
+          <span class="text-[10px] text-purple-200 font-medium bg-purple-500/20 px-2 py-0.5 rounded">100% Faceless</span>
         </div>
         <div class="grid grid-cols-4 gap-2 text-center text-[11px]">
-          <div class="p-2 rounded-xl bg-purple-900/20 border border-purple-500/15 flex flex-col items-center">
+          <div class="p-2 rounded-xl bg-purple-800/30 border border-purple-400/20 flex flex-col items-center">
             <span class="text-lg mb-1">🏷️</span>
             <span class="text-white font-medium">नाम कॉपी</span>
           </div>
-          <div class="p-2 rounded-xl bg-purple-900/20 border border-purple-500/15 flex flex-col items-center">
+          <div class="p-2 rounded-xl bg-purple-800/30 border border-purple-400/20 flex flex-col items-center">
             <span class="text-lg mb-1">✍️</span>
             <span class="text-white font-medium">बायो कॉपी</span>
           </div>
-          <div class="p-2 rounded-xl bg-purple-900/20 border border-purple-500/15 flex flex-col items-center">
+          <div class="p-2 rounded-xl bg-purple-800/30 border border-purple-400/20 flex flex-col items-center">
             <span class="text-lg mb-1">⚙️</span>
             <span class="text-white font-medium">सेटिंग्स देखें</span>
           </div>
-          <div class="p-2 rounded-xl bg-pink-900/30 border border-pink-500/30 flex flex-col items-center">
+          <div class="p-2 rounded-xl bg-pink-600/30 border border-pink-400/30 flex flex-col items-center">
             <span class="text-lg mb-1">📱</span>
-            <span class="text-pink-300 font-bold">IG पर बनाएँ</span>
+            <span class="text-pink-200 font-bold">IG पर बनाएँ</span>
           </div>
         </div>
       </div>
@@ -191,14 +195,14 @@
       </div>
 
       <!-- Segmented Tabs: [Copy & Setup] | [Settings] | [Audience Strategy] -->
-      <div class="grid grid-cols-3 gap-1 bg-[#120b29] p-1 rounded-xl border border-purple-500/20 text-xs font-semibold text-center">
+      <div class="grid grid-cols-3 gap-1 bg-[#27203d] p-1 rounded-xl border border-purple-300/20 text-xs font-semibold text-center">
         <button onclick="switchTab('copy')" id="tab-btn-copy" class="py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow transition">
           📋 Copy & Setup
         </button>
-        <button onclick="switchTab('settings')" id="tab-btn-settings" class="py-2 rounded-lg text-purple-300/80 hover:text-white transition">
+        <button onclick="switchTab('settings')" id="tab-btn-settings" class="py-2 rounded-lg text-purple-200 hover:text-white transition">
           ⚙️ Settings
         </button>
-        <button onclick="switchTab('audience')" id="tab-btn-audience" class="py-2 rounded-lg text-purple-300/80 hover:text-white transition">
+        <button onclick="switchTab('audience')" id="tab-btn-audience" class="py-2 rounded-lg text-purple-200 hover:text-white transition">
           👥 Audience
         </button>
       </div>
@@ -207,16 +211,16 @@
       <div id="tab-content-copy" class="space-y-3">
         
         <!-- Field 1: Username -->
-        <div class="rounded-2xl p-3.5 bg-[#140d30] border border-purple-500/25 space-y-1.5">
+        <div class="rounded-2xl p-3.5 bg-[#3a3057] border border-purple-300/30 space-y-1.5 shadow-md">
           <div class="flex items-center justify-between">
-            <label class="text-[11px] font-bold text-purple-300 flex items-center gap-1.5">
-              <span class="w-5 h-5 rounded-md bg-purple-500/20 text-purple-400 flex items-center justify-center text-xs">👤</span>
+            <label class="text-[11px] font-bold text-purple-100 flex items-center gap-1.5">
+              <span class="w-5 h-5 rounded-md bg-purple-500/30 text-purple-200 flex items-center justify-center text-xs">👤</span>
               Username (Instagram Signup में भरें)
             </label>
-            <span class="text-[10px] text-purple-400 font-medium">सुझाव</span>
+            <span class="text-[10px] text-purple-200 font-medium">सुझाव</span>
           </div>
           <div class="flex items-center gap-2">
-            <input type="text" id="input-username" readonly class="w-full bg-[#0a0618] border border-purple-500/30 rounded-xl px-3 py-2.5 text-xs text-white font-mono tracking-wide focus:outline-none">
+            <input type="text" id="input-username" readonly class="w-full bg-[#251e38] border border-purple-300/30 rounded-xl px-3 py-2.5 text-xs text-white font-mono tracking-wide focus:outline-none shadow-inner">
             <button onclick="copyField('input-username', 'Username')" class="shrink-0 px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-bold flex items-center gap-1 shadow-md active:scale-95 transition">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
@@ -224,20 +228,20 @@
               Copy
             </button>
           </div>
-          <p class="text-[10px] text-purple-400/80">अगर उपलब्ध न हो तो `_daily` या `official` जोड़ें।</p>
+          <p class="text-[10px] text-purple-200/90 font-medium">अगर उपलब्ध न हो तो `_daily` या `official` जोड़ें।</p>
         </div>
 
         <!-- Field 2: Name / Display Name -->
-        <div class="rounded-2xl p-3.5 bg-[#140d30] border border-purple-500/25 space-y-1.5">
+        <div class="rounded-2xl p-3.5 bg-[#3a3057] border border-purple-300/30 space-y-1.5 shadow-md">
           <div class="flex items-center justify-between">
-            <label class="text-[11px] font-bold text-purple-300 flex items-center gap-1.5">
-              <span class="w-5 h-5 rounded-md bg-pink-500/20 text-pink-400 flex items-center justify-center text-xs">🅰️</span>
+            <label class="text-[11px] font-bold text-purple-100 flex items-center gap-1.5">
+              <span class="w-5 h-5 rounded-md bg-pink-500/30 text-pink-200 flex items-center justify-center text-xs">🅰️</span>
               Name / Display Name (Edit Profile)
             </label>
-            <span class="text-[10px] text-pink-400 font-medium">Search Ranking</span>
+            <span class="text-[10px] text-pink-200 font-medium">Search Ranking</span>
           </div>
           <div class="flex items-center gap-2">
-            <input type="text" id="input-name" readonly class="w-full bg-[#0a0618] border border-purple-500/30 rounded-xl px-3 py-2.5 text-xs text-white font-semibold focus:outline-none">
+            <input type="text" id="input-name" readonly class="w-full bg-[#251e38] border border-purple-300/30 rounded-xl px-3 py-2.5 text-xs text-white font-semibold focus:outline-none shadow-inner">
             <button onclick="copyField('input-name', 'Name')" class="shrink-0 px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-bold flex items-center gap-1 shadow-md active:scale-95 transition">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
@@ -248,16 +252,24 @@
         </div>
 
         <!-- Field 3: Bio -->
-        <div class="rounded-2xl p-3.5 bg-[#140d30] border border-purple-500/25 space-y-1.5">
+        <div class="rounded-2xl p-3.5 bg-[#3a3057] border border-purple-300/30 space-y-1.5 shadow-md">
           <div class="flex items-center justify-between">
-            <label class="text-[11px] font-bold text-purple-300 flex items-center gap-1.5">
-              <span class="w-5 h-5 rounded-md bg-purple-500/20 text-purple-300 flex items-center justify-center text-xs">📝</span>
+            <label class="text-[11px] font-bold text-purple-100 flex items-center gap-1.5">
+              <span class="w-5 h-5 rounded-md bg-purple-500/30 text-purple-200 flex items-center justify-center text-xs">📝</span>
               Bio (पूरा कॉपी करें)
             </label>
-            <span class="text-[10px] text-purple-300/80">4 पंक्तियाँ</span>
+            <span class="text-[10px] text-purple-200 font-medium">4 पंक्तियाँ</span>
           </div>
           <div class="space-y-2">
-            <textarea id="input-bio" rows="4" readonly class="w-full bg-[#0a0618] border border-purple-500/30 rounded-xl p-3 text-xs text-purple-100 leading-relaxed font-sans focus:outline-none resize-none"></textarea>
+            <textarea id="input-bio" rows="4" readonly class="w-full bg-[#251e38] border border-purple-300/30 rounded-xl p-3 text-xs text-purple-100 leading-relaxed font-sans focus:outline-none resize-none shadow-inner"></textarea>
+            <button onclick="copyField('input-bio', 'Bio')" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 hover:opacity-95 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-lg active:scale-98 transition">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+              </svg>
+              पूरा Bio कॉपी करें
+            </button>
+          </div>
+        </div>
             <button onclick="copyField('input-bio', 'Bio')" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 hover:opacity-95 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-lg active:scale-98 transition">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
@@ -276,38 +288,38 @@
 
       <!-- TAB 2: SETTINGS CHECKLIST -->
       <div id="tab-content-settings" class="hidden space-y-2.5">
-        <div class="rounded-2xl p-4 bg-[#140d30] border border-purple-500/25 space-y-3">
+        <div class="rounded-2xl p-4 bg-[#3a3057] border border-purple-300/30 space-y-3 shadow-md">
           <h3 class="text-xs font-bold text-white flex items-center gap-1.5">
             ⚙️ Instagram Settings (यही सेट करें)
           </h3>
-          <div class="divide-y divide-purple-500/15 text-xs">
+          <div class="divide-y divide-purple-300/20 text-xs">
             <div class="py-2.5 flex items-center justify-between">
-              <span class="text-purple-300">Account Type</span>
-              <span class="font-bold text-white bg-purple-900/50 px-2 py-0.5 rounded border border-purple-500/30">Creator</span>
+              <span class="text-purple-100 font-medium">Account Type</span>
+              <span class="font-bold text-white bg-purple-700/60 px-2.5 py-0.5 rounded border border-purple-400/40">Creator</span>
             </div>
             <div class="py-2.5 flex items-center justify-between">
-              <span class="text-purple-300">Category</span>
-              <span class="font-bold text-white bg-pink-900/50 px-2 py-0.5 rounded border border-pink-500/30">Digital Creator</span>
+              <span class="text-purple-100 font-medium">Category</span>
+              <span class="font-bold text-white bg-pink-700/60 px-2.5 py-0.5 rounded border border-pink-400/40">Digital Creator</span>
             </div>
             <div class="py-2.5 flex items-center justify-between">
-              <span class="text-purple-300">Account Privacy</span>
-              <span class="font-bold text-emerald-400 bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-500/30">Public</span>
+              <span class="text-purple-100 font-medium">Account Privacy</span>
+              <span class="font-bold text-emerald-300 bg-emerald-900/60 px-2.5 py-0.5 rounded border border-emerald-400/40">Public</span>
             </div>
             <div class="py-2.5 flex items-center justify-between">
-              <span class="text-purple-300">Display Category</span>
-              <span class="font-bold text-emerald-400">ON</span>
+              <span class="text-purple-100 font-medium">Display Category</span>
+              <span class="font-bold text-emerald-300">ON</span>
             </div>
             <div class="py-2.5 flex items-center justify-between">
-              <span class="text-purple-300">Two-Factor Authentication</span>
+              <span class="text-purple-100 font-medium">Two-Factor Authentication</span>
               <span class="font-bold text-amber-300">ON (ज़रूरी)</span>
             </div>
             <div class="py-2.5 flex items-center justify-between">
-              <span class="text-purple-300">Show Contact Info</span>
-              <span class="font-bold text-rose-400">OFF</span>
+              <span class="text-purple-100 font-medium">Show Contact Info</span>
+              <span class="font-bold text-rose-300">OFF</span>
             </div>
             <div class="py-2.5 flex items-center justify-between">
-              <span class="text-purple-300">Website Link</span>
-              <span class="text-purple-400/80">अभी खाली छोड़ें</span>
+              <span class="text-purple-100 font-medium">Website Link</span>
+              <span class="text-purple-200">अभी खाली छोड़ें</span>
             </div>
           </div>
         </div>
@@ -315,22 +327,22 @@
 
       <!-- TAB 3: AUDIENCE & VIRAL ANGLE -->
       <div id="tab-content-audience" class="hidden space-y-2.5">
-        <div class="rounded-2xl p-4 bg-[#140d30] border border-purple-500/25 space-y-3">
+        <div class="rounded-2xl p-4 bg-[#3a3057] border border-purple-300/30 space-y-3 shadow-md">
           <div>
-            <span class="text-[10px] font-bold text-purple-400 uppercase tracking-wider">🎯 Target Audience</span>
+            <span class="text-[10px] font-bold text-purple-200 uppercase tracking-wider">🎯 Target Audience</span>
             <p id="detail-target" class="text-xs text-white font-medium mt-1 leading-relaxed">
               18–30 वर्ष, अधूरा प्यार, किसी की याद और अनकही भावनाओं से जुड़ने वाले दर्शक।
             </p>
           </div>
-          <div class="pt-2 border-t border-purple-500/15">
-            <span class="text-[10px] font-bold text-pink-400 uppercase tracking-wider">🔥 Viral Hook Angle</span>
-            <p id="detail-angle" class="text-xs text-purple-200 font-medium mt-1 leading-relaxed">
+          <div class="pt-2 border-t border-purple-300/20">
+            <span class="text-[10px] font-bold text-pink-300 uppercase tracking-wider">🔥 Viral Hook Angle</span>
+            <p id="detail-angle" class="text-xs text-purple-100 font-medium mt-1 leading-relaxed">
               ऐसी अनकही भावनाएँ जिनसे दर्शक जुड़ सकें और किसी खास इंसान को भेजना चाहें।
             </p>
           </div>
-          <div class="pt-2 border-t border-purple-500/15">
-            <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider">💡 Growth Rule</span>
-            <p class="text-xs text-purple-300 mt-1 leading-relaxed">
+          <div class="pt-2 border-t border-purple-300/20">
+            <span class="text-[10px] font-bold text-emerald-300 uppercase tracking-wider">💡 Growth Rule</span>
+            <p class="text-xs text-purple-100 mt-1 leading-relaxed">
               पहले 60–90 दिन सिर्फ 1 Background + 2–4 Line Quotes + Audio. नो कॉम्प्लेक्स एडिटिंग।
             </p>
           </div>
@@ -348,21 +360,21 @@
     </div>
 
     <!-- BOTTOM APP NAVIGATION BAR -->
-    <nav class="fixed bottom-0 left-0 right-0 z-40 bg-[#0c081e]/95 backdrop-blur-lg border-t border-purple-500/20 py-2">
+    <nav class="fixed bottom-0 left-0 right-0 z-40 bg-[#29223e]/95 backdrop-blur-lg border-t border-purple-300/20 py-2">
       <div class="max-w-md mx-auto grid grid-cols-4 gap-1 text-center text-[10px] font-semibold">
-        <button onclick="navigateHome()" class="flex flex-col items-center py-1 text-purple-400 hover:text-white transition">
+        <button onclick="navigateHome()" class="flex flex-col items-center py-1 text-purple-200 hover:text-white transition">
           <span class="text-base">🏠</span>
           <span>Channels</span>
         </button>
-        <button onclick="openModal('guide')" class="flex flex-col items-center py-1 text-purple-400/70 hover:text-white transition">
+        <button onclick="openModal('guide')" class="flex flex-col items-center py-1 text-purple-200/80 hover:text-white transition">
           <span class="text-base">📖</span>
           <span>Guide</span>
         </button>
-        <button onclick="openModal('settings-all')" class="flex flex-col items-center py-1 text-purple-400/70 hover:text-white transition">
+        <button onclick="openModal('settings-all')" class="flex flex-col items-center py-1 text-purple-200/80 hover:text-white transition">
           <span class="text-base">⚙️</span>
           <span>Settings</span>
         </button>
-        <a href="https://github.com/Mohit12836/vismart-ai-closer/blob/main/docs/instagram-growth-factory/learning/2026-11-17/five-new-text-only-pages-setup.md" target="_blank" class="flex flex-col items-center py-1 text-purple-400/70 hover:text-white transition">
+        <a href="https://github.com/Mohit12836/vismart-channels-setup" target="_blank" class="flex flex-col items-center py-1 text-purple-200/80 hover:text-white transition">
           <span class="text-base">📄</span>
           <span>GitHub</span>
         </a>
