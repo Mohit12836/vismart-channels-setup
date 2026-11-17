@@ -10,20 +10,19 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', '"Noto Sans Devanagari"', 'sans-serif'],
           },
           colors: {
-            brand: {
-              dark: '#080514',
-              card: '#130d2a',
-              cardBorder: 'rgba(168, 85, 247, 0.25)',
-              accent: '#a855f7',
-              pink: '#ec4899',
-            }
+            appBg: '#F1F3F6',        /* Meesho / Flipkart subtle soft grey-blue bg */
+            cardBg: '#FFFFFF',       /* Clean crisp card blocks */
+            brandPurple: '#7C3AED',  /* High-converting purple */
+            brandPink: '#E11D48',    /* Energetic pink/rose */
+            textPrimary: '#1E293B',  /* Deep readable slate (like Amazon/Meesho) */
+            textSecondary: '#64748B',/* Soft descriptive subtitle */
+            borderSubtle: '#E2E8F0', /* Premium card border */
           }
         }
       }
@@ -35,124 +34,114 @@
       -webkit-tap-highlight-color: transparent;
     }
     body {
-      background: #332d4a; /* Premium soft plum-slate: neither pure white nor pitch black */
-      background-image: 
-        radial-gradient(at 0% 0%, rgba(147, 51, 234, 0.25) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(236, 72, 153, 0.22) 0px, transparent 50%),
-        radial-gradient(at 50% 100%, rgba(99, 102, 241, 0.2) 0px, transparent 50%);
+      background-color: #F1F3F6;
       min-height: 100vh;
-      color: #f8fafc;
+      color: #1E293B;
       font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', sans-serif;
     }
-    .glass-card {
-      background: rgba(67, 56, 96, 0.65);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(216, 180, 254, 0.25);
+    .ecommerce-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.05), 0 1px 4px -1px rgba(0, 0, 0, 0.03);
     }
-    .glass-glow {
-      box-shadow: 0 10px 30px -5px rgba(24, 16, 48, 0.35);
-    }
-    .neon-border {
-      border: 1px solid rgba(244, 114, 182, 0.4);
+    .ecommerce-card-hover:active {
+      transform: scale(0.985);
+      background-color: #F8FAFC;
     }
     .toast-animate {
-      animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
     @keyframes slideUp {
       from { transform: translate(-50%, 100%); opacity: 0; }
       to { transform: translate(-50%, 0); opacity: 1; }
     }
-    /* Custom scrollbar */
+    /* Subtle mobile scrollbar */
     ::-webkit-scrollbar {
-      width: 5px;
+      width: 4px;
     }
     ::-webkit-scrollbar-thumb {
-      background: rgba(168, 85, 247, 0.3);
+      background: #CBD5E1;
       border-radius: 9999px;
     }
   </style>
 </head>
-<body class="antialiased flex justify-center selection:bg-purple-500 selection:text-white">
+<body class="antialiased flex justify-center selection:bg-purple-600 selection:text-white">
 
-  <!-- Main Mobile/Tablet App Shell -->
-  <div class="w-full max-w-md min-h-screen flex flex-col relative pb-28">
+  <!-- Main Mobile/Tablet App Shell (Meesho / Amazon style clean layout) -->
+  <div class="w-full max-w-md min-h-screen flex flex-col relative pb-24 bg-[#F1F3F6]">
 
-    <!-- Top Status / Branding Bar -->
-    <header class="sticky top-0 z-40 bg-[#322a4d]/90 backdrop-blur-md border-b border-purple-300/20 px-4 py-3 flex items-center justify-between shadow-sm">
+    <!-- Top App Header (Clean White Bar with Amazon/Meesho crisp contrast) -->
+    <header class="sticky top-0 z-40 bg-white border-b border-slate-200 px-4 py-3 flex items-center justify-between shadow-sm">
       <div id="header-left" class="flex items-center gap-2.5">
-        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-purple-500 via-pink-500 to-indigo-500 flex items-center justify-center shadow-md">
-          <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-purple-200">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
             <path d="M8 5v14l11-7z"/>
           </svg>
         </div>
         <div>
-          <h1 class="text-base font-extrabold tracking-wide text-white flex items-center gap-1.5">
+          <h1 class="text-base font-extrabold tracking-tight text-slate-900 flex items-center gap-1.5 leading-none">
             VISMART
-            <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-purple-400/25 text-purple-200 font-bold border border-purple-300/30">5 Channels</span>
+            <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-purple-100 text-purple-700 font-bold border border-purple-200">5 Channels</span>
           </h1>
-          <p class="text-[11px] text-purple-200 font-medium -mt-0.5">Instagram Channel Setup App</p>
+          <p class="text-[11px] text-slate-500 font-medium mt-0.5">Instagram Channel Setup App</p>
         </div>
       </div>
 
       <div class="flex items-center gap-2">
-        <a href="https://instagram.com" target="_blank" class="w-8 h-8 rounded-xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 p-0.5 flex items-center justify-center shadow-md active:scale-95 transition-transform" title="Open Instagram">
-          <div class="w-full h-full bg-[#3d335c] rounded-[10px] flex items-center justify-center">
-            <svg class="w-4 h-4 text-pink-300" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-          </div>
+        <a href="https://instagram.com" target="_blank" class="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-gradient-to-r from-pink-500 via-rose-500 to-amber-500 text-white text-[11px] font-bold shadow-sm active:scale-95 transition" title="Instagram खोलें">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          Instagram
         </a>
       </div>
     </header>
 
     <!-- VIEW 1: HOME LIST VIEW -->
-    <main id="view-home" class="px-4 pt-3 space-y-3.5">
+    <main id="view-home" class="px-4 pt-3.5 space-y-3">
       
-      <!-- Hero Banner -->
-      <div class="relative overflow-hidden rounded-2xl p-4 bg-gradient-to-br from-purple-800/40 via-purple-700/25 to-pink-800/30 border border-purple-300/30 shadow-lg">
-        <div class="flex items-start justify-between">
-          <div class="space-y-1">
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-400 text-slate-900 shadow-sm">
-              👑 5 Viral Text-Reel Channels
-            </span>
-            <h2 class="text-lg font-bold text-white pt-1">बस Copy करें और Channels बनाएँ</h2>
-            <p class="text-xs text-purple-100 leading-relaxed font-normal">
-              एक सुंदर Background + 2–4 लाइन Text + Music. बिना चेहरे या कैमरे के वायरल होने वाला फॉर्मूला।
-            </p>
-          </div>
+      <!-- Clean Offer / Hero Banner (Amazon App Gold/Purple Style) -->
+      <div class="relative overflow-hidden rounded-2xl p-4 bg-gradient-to-r from-purple-900 to-indigo-900 text-white shadow-md">
+        <div class="space-y-1">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-amber-400 text-slate-900">
+            👑 5 Viral Text-Reel Channels
+          </span>
+          <h2 class="text-base font-extrabold pt-1">बस Copy करें और Channels बनाएँ</h2>
+          <p class="text-xs text-purple-100 leading-relaxed font-normal">
+            सुंदर Background + 2–4 लाइन Text + Audio. बिना चेहरे या कैमरे के वायरल होने वाला फॉर्मूला।
+          </p>
         </div>
       </div>
 
-      <!-- Channels List -->
+      <!-- Channels List (Pure White Crisp Blocks on Light Grey Background) -->
       <div class="space-y-2.5" id="channels-container">
         <!-- Rendered by JS -->
       </div>
 
-      <!-- Quick 4-Step Process Guide Box -->
-      <div class="rounded-2xl p-4 bg-[#2b2442]/80 border border-purple-300/20 space-y-3 shadow-md">
+      <!-- Setup Process 4-Step Quick Flow (Meesho Style Infobox) -->
+      <div class="ecommerce-card rounded-2xl p-4 space-y-3">
         <div class="flex items-center justify-between">
-          <h3 class="text-xs font-bold text-purple-100 flex items-center gap-1.5">
-            🚀 Setup Process (हर चैनल के लिए)
+          <h3 class="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+            🚀 4-Step Setup Process (हर चैनल के लिए)
           </h3>
-          <span class="text-[10px] text-purple-200 font-medium bg-purple-500/20 px-2 py-0.5 rounded">100% Faceless</span>
+          <span class="text-[10px] text-purple-700 font-bold bg-purple-50 px-2 py-0.5 rounded-md border border-purple-200">100% Faceless</span>
         </div>
         <div class="grid grid-cols-4 gap-2 text-center text-[11px]">
-          <div class="p-2 rounded-xl bg-purple-800/30 border border-purple-400/20 flex flex-col items-center">
+          <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 flex flex-col items-center">
             <span class="text-lg mb-1">🏷️</span>
-            <span class="text-white font-medium">नाम कॉपी</span>
+            <span class="text-slate-800 font-semibold">नाम कॉपी</span>
           </div>
-          <div class="p-2 rounded-xl bg-purple-800/30 border border-purple-400/20 flex flex-col items-center">
+          <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 flex flex-col items-center">
             <span class="text-lg mb-1">✍️</span>
-            <span class="text-white font-medium">बायो कॉपी</span>
+            <span class="text-slate-800 font-semibold">बायो कॉपी</span>
           </div>
-          <div class="p-2 rounded-xl bg-purple-800/30 border border-purple-400/20 flex flex-col items-center">
+          <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 flex flex-col items-center">
             <span class="text-lg mb-1">⚙️</span>
-            <span class="text-white font-medium">सेटिंग्स देखें</span>
+            <span class="text-slate-800 font-semibold">सेटिंग्स देखें</span>
           </div>
-          <div class="p-2 rounded-xl bg-pink-600/30 border border-pink-400/30 flex flex-col items-center">
+          <div class="p-2.5 rounded-xl bg-pink-50 border border-pink-200 flex flex-col items-center">
             <span class="text-lg mb-1">📱</span>
-            <span class="text-pink-200 font-bold">IG पर बनाएँ</span>
+            <span class="text-pink-700 font-bold">IG पर बनाएँ</span>
           </div>
         </div>
       </div>
@@ -160,49 +149,47 @@
     </main>
 
 
-    <!-- VIEW 2: CHANNEL SETUP DETAIL VIEW (Deep Detail & 1-Click Copy) -->
-    <main id="view-detail" class="hidden px-4 pt-3 space-y-3.5">
+    <!-- VIEW 2: CHANNEL SETUP DETAIL VIEW (Crisp White Blocks, High Contrast) -->
+    <main id="view-detail" class="hidden px-4 pt-3.5 space-y-3">
       
       <!-- Back Navigation Header -->
       <div class="flex items-center justify-between">
-        <button onclick="navigateHome()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-900/40 text-purple-200 text-xs font-semibold border border-purple-500/30 hover:bg-purple-800/40 active:scale-95 transition">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button onclick="navigateHome()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white text-slate-800 text-xs font-bold border border-slate-200 shadow-sm hover:bg-slate-50 active:scale-95 transition">
+          <svg class="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
           </svg>
           वापस Channels लिस्ट
         </button>
-        <span id="detail-channel-badge" class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-400 text-slate-950 shadow">
+        <span id="detail-channel-badge" class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-amber-400 text-slate-900 shadow-sm">
           Channel 1
         </span>
       </div>
 
-      <!-- Channel Banner Card -->
-      <div id="detail-hero-card" class="relative overflow-hidden rounded-2xl p-4 bg-gradient-to-r from-purple-950 via-indigo-950 to-pink-950 border border-purple-500/30 shadow-xl flex items-center gap-3.5">
-        <div id="detail-avatar" class="w-16 h-16 rounded-2xl overflow-hidden shrink-0 border border-purple-400/40 shadow-lg flex items-center justify-center text-3xl">
-          <!-- Emoji or Image -->
+      <!-- Channel Hero Card (Clean & Colorful) -->
+      <div id="detail-hero-card" class="ecommerce-card rounded-2xl p-4 flex items-center gap-3.5">
+        <div id="detail-avatar" class="w-14 h-14 rounded-2xl bg-purple-50 border border-purple-200 flex items-center justify-center text-3xl shrink-0 shadow-sm">
+          <!-- Emoji -->
         </div>
         <div class="min-w-0 flex-1">
-          <div class="flex items-center gap-2">
-            <h2 id="detail-title" class="text-lg font-extrabold text-white truncate">अधूरी बातें</h2>
-          </div>
-          <p id="detail-subtitle" class="text-xs text-purple-300/90 truncate">Love & Heartbreak Quotes</p>
-          <div class="mt-1.5">
-            <span id="detail-angle-badge" class="inline-block text-[11px] font-medium text-pink-300 bg-pink-500/15 px-2 py-0.5 rounded-md border border-pink-500/30 truncate max-w-full">
+          <h2 id="detail-title" class="text-base font-extrabold text-slate-900 truncate">अधूरी बातें</h2>
+          <p id="detail-subtitle" class="text-xs text-slate-500 font-medium truncate">Love & Heartbreak Quotes</p>
+          <div class="mt-1">
+            <span id="detail-angle-badge" class="inline-block text-[11px] font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded-md border border-purple-200 truncate max-w-full">
               🎯 अनकही भावनाओं का पेज
             </span>
           </div>
         </div>
       </div>
 
-      <!-- Segmented Tabs: [Copy & Setup] | [Settings] | [Audience Strategy] -->
-      <div class="grid grid-cols-3 gap-1 bg-[#27203d] p-1 rounded-xl border border-purple-300/20 text-xs font-semibold text-center">
-        <button onclick="switchTab('copy')" id="tab-btn-copy" class="py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow transition">
+      <!-- Segmented Tabs (Meesho / Swiggy Style clean selector) -->
+      <div class="grid grid-cols-3 gap-1 bg-slate-200/70 p-1 rounded-xl text-xs font-bold text-center">
+        <button onclick="switchTab('copy')" id="tab-btn-copy" class="py-2 rounded-lg bg-white text-purple-700 shadow-sm transition">
           📋 Copy & Setup
         </button>
-        <button onclick="switchTab('settings')" id="tab-btn-settings" class="py-2 rounded-lg text-purple-200 hover:text-white transition">
+        <button onclick="switchTab('settings')" id="tab-btn-settings" class="py-2 rounded-lg text-slate-600 hover:text-slate-900 transition">
           ⚙️ Settings
         </button>
-        <button onclick="switchTab('audience')" id="tab-btn-audience" class="py-2 rounded-lg text-purple-200 hover:text-white transition">
+        <button onclick="switchTab('audience')" id="tab-btn-audience" class="py-2 rounded-lg text-slate-600 hover:text-slate-900 transition">
           👥 Audience
         </button>
       </div>
@@ -211,40 +198,40 @@
       <div id="tab-content-copy" class="space-y-3">
         
         <!-- Field 1: Username -->
-        <div class="rounded-2xl p-3.5 bg-[#3a3057] border border-purple-300/30 space-y-1.5 shadow-md">
+        <div class="ecommerce-card rounded-2xl p-3.5 space-y-1.5">
           <div class="flex items-center justify-between">
-            <label class="text-[11px] font-bold text-purple-100 flex items-center gap-1.5">
-              <span class="w-5 h-5 rounded-md bg-purple-500/30 text-purple-200 flex items-center justify-center text-xs">👤</span>
+            <label class="text-[11px] font-bold text-slate-700 flex items-center gap-1.5">
+              <span class="w-5 h-5 rounded-md bg-purple-100 text-purple-700 flex items-center justify-center text-xs">👤</span>
               Username (Instagram Signup में भरें)
             </label>
-            <span class="text-[10px] text-purple-200 font-medium">सुझाव</span>
+            <span class="text-[10px] text-slate-400 font-semibold">सुझाव</span>
           </div>
           <div class="flex items-center gap-2">
-            <input type="text" id="input-username" readonly class="w-full bg-[#251e38] border border-purple-300/30 rounded-xl px-3 py-2.5 text-xs text-white font-mono tracking-wide focus:outline-none shadow-inner">
-            <button onclick="copyField('input-username', 'Username')" class="shrink-0 px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-bold flex items-center gap-1 shadow-md active:scale-95 transition">
+            <input type="text" id="input-username" readonly class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-xs text-slate-900 font-mono font-bold tracking-wide focus:outline-none select-all">
+            <button onclick="copyField('input-username', 'Username')" class="shrink-0 px-4 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 active:scale-95 text-white text-xs font-extrabold flex items-center gap-1 shadow-sm transition">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
               </svg>
               Copy
             </button>
           </div>
-          <p class="text-[10px] text-purple-200/90 font-medium">अगर उपलब्ध न हो तो `_daily` या `official` जोड़ें।</p>
+          <p class="text-[10px] text-slate-500 font-medium">अगर उपलब्ध न हो तो `_daily` या `official` जोड़ें।</p>
         </div>
 
         <!-- Field 2: Name / Display Name -->
-        <div class="rounded-2xl p-3.5 bg-[#3a3057] border border-purple-300/30 space-y-1.5 shadow-md">
+        <div class="ecommerce-card rounded-2xl p-3.5 space-y-1.5">
           <div class="flex items-center justify-between">
-            <label class="text-[11px] font-bold text-purple-100 flex items-center gap-1.5">
-              <span class="w-5 h-5 rounded-md bg-pink-500/30 text-pink-200 flex items-center justify-center text-xs">🅰️</span>
+            <label class="text-[11px] font-bold text-slate-700 flex items-center gap-1.5">
+              <span class="w-5 h-5 rounded-md bg-pink-100 text-pink-700 flex items-center justify-center text-xs">🅰️</span>
               Name / Display Name (Edit Profile)
             </label>
-            <span class="text-[10px] text-pink-200 font-medium">Search Ranking</span>
+            <span class="text-[10px] text-pink-600 font-bold">Search Ranking</span>
           </div>
           <div class="flex items-center gap-2">
-            <input type="text" id="input-name" readonly class="w-full bg-[#251e38] border border-purple-300/30 rounded-xl px-3 py-2.5 text-xs text-white font-semibold focus:outline-none shadow-inner">
-            <button onclick="copyField('input-name', 'Name')" class="shrink-0 px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-bold flex items-center gap-1 shadow-md active:scale-95 transition">
+            <input type="text" id="input-name" readonly class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-xs text-slate-900 font-bold focus:outline-none select-all">
+            <button onclick="copyField('input-name', 'Name')" class="shrink-0 px-4 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 active:scale-95 text-white text-xs font-extrabold flex items-center gap-1 shadow-sm transition">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
               </svg>
               Copy
             </button>
@@ -252,27 +239,19 @@
         </div>
 
         <!-- Field 3: Bio -->
-        <div class="rounded-2xl p-3.5 bg-[#3a3057] border border-purple-300/30 space-y-1.5 shadow-md">
+        <div class="ecommerce-card rounded-2xl p-3.5 space-y-1.5">
           <div class="flex items-center justify-between">
-            <label class="text-[11px] font-bold text-purple-100 flex items-center gap-1.5">
-              <span class="w-5 h-5 rounded-md bg-purple-500/30 text-purple-200 flex items-center justify-center text-xs">📝</span>
+            <label class="text-[11px] font-bold text-slate-700 flex items-center gap-1.5">
+              <span class="w-5 h-5 rounded-md bg-purple-100 text-purple-700 flex items-center justify-center text-xs">📝</span>
               Bio (पूरा कॉपी करें)
             </label>
-            <span class="text-[10px] text-purple-200 font-medium">4 पंक्तियाँ</span>
+            <span class="text-[10px] text-slate-400 font-semibold">4 पंक्तियाँ</span>
           </div>
           <div class="space-y-2">
-            <textarea id="input-bio" rows="4" readonly class="w-full bg-[#251e38] border border-purple-300/30 rounded-xl p-3 text-xs text-purple-100 leading-relaxed font-sans focus:outline-none resize-none shadow-inner"></textarea>
-            <button onclick="copyField('input-bio', 'Bio')" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 hover:opacity-95 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-lg active:scale-98 transition">
+            <textarea id="input-bio" rows="4" readonly class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-xs text-slate-900 font-semibold leading-relaxed font-sans focus:outline-none resize-none select-all"></textarea>
+            <button onclick="copyField('input-bio', 'Bio')" class="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 hover:opacity-95 text-white text-xs font-extrabold flex items-center justify-center gap-1.5 shadow-sm active:scale-98 transition">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-              </svg>
-              पूरा Bio कॉपी करें
-            </button>
-          </div>
-        </div>
-            <button onclick="copyField('input-bio', 'Bio')" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 hover:opacity-95 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-lg active:scale-98 transition">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
               </svg>
               पूरा Bio कॉपी करें
             </button>
@@ -280,46 +259,46 @@
         </div>
 
         <!-- CTA: Open Instagram Directly -->
-        <a href="https://instagram.com" target="_blank" class="block w-full py-3.5 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 text-white text-center font-bold text-sm shadow-lg shadow-purple-900/50 active:scale-98 transition">
+        <a href="https://instagram.com" target="_blank" class="block w-full py-3.5 rounded-2xl bg-gradient-to-r from-pink-600 via-rose-600 to-amber-500 text-white text-center font-extrabold text-sm shadow-md active:scale-98 transition">
           📸 अब Instagram पर Channel बनाएँ →
         </a>
 
       </div>
 
-      <!-- TAB 2: SETTINGS CHECKLIST -->
+      <!-- TAB 2: SETTINGS CHECKLIST (Clean High Contrast Table) -->
       <div id="tab-content-settings" class="hidden space-y-2.5">
-        <div class="rounded-2xl p-4 bg-[#3a3057] border border-purple-300/30 space-y-3 shadow-md">
-          <h3 class="text-xs font-bold text-white flex items-center gap-1.5">
+        <div class="ecommerce-card rounded-2xl p-4 space-y-3">
+          <h3 class="text-xs font-extrabold text-slate-900 flex items-center gap-1.5">
             ⚙️ Instagram Settings (यही सेट करें)
           </h3>
-          <div class="divide-y divide-purple-300/20 text-xs">
+          <div class="divide-y divide-slate-100 text-xs font-semibold">
             <div class="py-2.5 flex items-center justify-between">
-              <span class="text-purple-100 font-medium">Account Type</span>
-              <span class="font-bold text-white bg-purple-700/60 px-2.5 py-0.5 rounded border border-purple-400/40">Creator</span>
+              <span class="text-slate-600">Account Type</span>
+              <span class="text-purple-700 bg-purple-50 px-2.5 py-0.5 rounded border border-purple-200 font-extrabold">Creator</span>
             </div>
             <div class="py-2.5 flex items-center justify-between">
-              <span class="text-purple-100 font-medium">Category</span>
-              <span class="font-bold text-white bg-pink-700/60 px-2.5 py-0.5 rounded border border-pink-400/40">Digital Creator</span>
+              <span class="text-slate-600">Category</span>
+              <span class="text-pink-700 bg-pink-50 px-2.5 py-0.5 rounded border border-pink-200 font-extrabold">Digital Creator</span>
             </div>
             <div class="py-2.5 flex items-center justify-between">
-              <span class="text-purple-100 font-medium">Account Privacy</span>
-              <span class="font-bold text-emerald-300 bg-emerald-900/60 px-2.5 py-0.5 rounded border border-emerald-400/40">Public</span>
+              <span class="text-slate-600">Account Privacy</span>
+              <span class="text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-200 font-extrabold">Public</span>
             </div>
             <div class="py-2.5 flex items-center justify-between">
-              <span class="text-purple-100 font-medium">Display Category</span>
-              <span class="font-bold text-emerald-300">ON</span>
+              <span class="text-slate-600">Display Category</span>
+              <span class="text-emerald-700 font-extrabold">ON</span>
             </div>
             <div class="py-2.5 flex items-center justify-between">
-              <span class="text-purple-100 font-medium">Two-Factor Authentication</span>
-              <span class="font-bold text-amber-300">ON (ज़रूरी)</span>
+              <span class="text-slate-600">Two-Factor Authentication</span>
+              <span class="text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 font-extrabold">ON (ज़रूरी)</span>
             </div>
             <div class="py-2.5 flex items-center justify-between">
-              <span class="text-purple-100 font-medium">Show Contact Info</span>
-              <span class="font-bold text-rose-300">OFF</span>
+              <span class="text-slate-600">Show Contact Info</span>
+              <span class="text-rose-600 font-extrabold">OFF</span>
             </div>
             <div class="py-2.5 flex items-center justify-between">
-              <span class="text-purple-100 font-medium">Website Link</span>
-              <span class="text-purple-200">अभी खाली छोड़ें</span>
+              <span class="text-slate-600">Website Link</span>
+              <span class="text-slate-400">अभी खाली छोड़ें</span>
             </div>
           </div>
         </div>
@@ -327,22 +306,22 @@
 
       <!-- TAB 3: AUDIENCE & VIRAL ANGLE -->
       <div id="tab-content-audience" class="hidden space-y-2.5">
-        <div class="rounded-2xl p-4 bg-[#3a3057] border border-purple-300/30 space-y-3 shadow-md">
+        <div class="ecommerce-card rounded-2xl p-4 space-y-3">
           <div>
-            <span class="text-[10px] font-bold text-purple-200 uppercase tracking-wider">🎯 Target Audience</span>
-            <p id="detail-target" class="text-xs text-white font-medium mt-1 leading-relaxed">
+            <span class="text-[10px] font-extrabold text-purple-700 uppercase tracking-wider bg-purple-50 px-2 py-0.5 rounded border border-purple-200">🎯 Target Audience</span>
+            <p id="detail-target" class="text-xs text-slate-800 font-semibold mt-1.5 leading-relaxed">
               18–30 वर्ष, अधूरा प्यार, किसी की याद और अनकही भावनाओं से जुड़ने वाले दर्शक।
             </p>
           </div>
-          <div class="pt-2 border-t border-purple-300/20">
-            <span class="text-[10px] font-bold text-pink-300 uppercase tracking-wider">🔥 Viral Hook Angle</span>
-            <p id="detail-angle" class="text-xs text-purple-100 font-medium mt-1 leading-relaxed">
+          <div class="pt-2 border-t border-slate-100">
+            <span class="text-[10px] font-extrabold text-pink-700 uppercase tracking-wider bg-pink-50 px-2 py-0.5 rounded border border-pink-200">🔥 Viral Hook Angle</span>
+            <p id="detail-angle" class="text-xs text-slate-800 font-semibold mt-1.5 leading-relaxed">
               ऐसी अनकही भावनाएँ जिनसे दर्शक जुड़ सकें और किसी खास इंसान को भेजना चाहें।
             </p>
           </div>
-          <div class="pt-2 border-t border-purple-300/20">
-            <span class="text-[10px] font-bold text-emerald-300 uppercase tracking-wider">💡 Growth Rule</span>
-            <p class="text-xs text-purple-100 mt-1 leading-relaxed">
+          <div class="pt-2 border-t border-slate-100">
+            <span class="text-[10px] font-extrabold text-emerald-700 uppercase tracking-wider bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">💡 Growth Rule</span>
+            <p class="text-xs text-slate-600 font-medium mt-1.5 leading-relaxed">
               पहले 60–90 दिन सिर्फ 1 Background + 2–4 Line Quotes + Audio. नो कॉम्प्लेक्स एडिटिंग।
             </p>
           </div>
@@ -352,29 +331,29 @@
     </main>
 
     <!-- FLOATING TOAST NOTIFICATION -->
-    <div id="toast" class="hidden fixed bottom-20 left-1/2 -translate-x-1/2 z-50 px-4 py-2.5 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-xs font-bold shadow-2xl flex items-center gap-2 border border-emerald-400/40 toast-animate">
-      <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div id="toast" class="hidden fixed bottom-20 left-1/2 -translate-x-1/2 z-50 px-5 py-2.5 rounded-full bg-slate-900 text-white text-xs font-extrabold shadow-2xl flex items-center gap-2 border border-slate-700 toast-animate">
+      <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
       </svg>
       <span id="toast-msg">कॉपी हो गया!</span>
     </div>
 
-    <!-- BOTTOM APP NAVIGATION BAR -->
-    <nav class="fixed bottom-0 left-0 right-0 z-40 bg-[#29223e]/95 backdrop-blur-lg border-t border-purple-300/20 py-2">
-      <div class="max-w-md mx-auto grid grid-cols-4 gap-1 text-center text-[10px] font-semibold">
-        <button onclick="navigateHome()" class="flex flex-col items-center py-1 text-purple-200 hover:text-white transition">
+    <!-- BOTTOM APP NAVIGATION BAR (Clean White Meesho Style) -->
+    <nav class="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-slate-200 py-2 shadow-lg">
+      <div class="max-w-md mx-auto grid grid-cols-4 gap-1 text-center text-[10px] font-bold">
+        <button onclick="navigateHome()" class="flex flex-col items-center py-1 text-purple-700 transition">
           <span class="text-base">🏠</span>
           <span>Channels</span>
         </button>
-        <button onclick="openModal('guide')" class="flex flex-col items-center py-1 text-purple-200/80 hover:text-white transition">
+        <button onclick="openModal('guide')" class="flex flex-col items-center py-1 text-slate-500 hover:text-slate-900 transition">
           <span class="text-base">📖</span>
           <span>Guide</span>
         </button>
-        <button onclick="openModal('settings-all')" class="flex flex-col items-center py-1 text-purple-200/80 hover:text-white transition">
+        <button onclick="openModal('settings-all')" class="flex flex-col items-center py-1 text-slate-500 hover:text-slate-900 transition">
           <span class="text-base">⚙️</span>
           <span>Settings</span>
         </button>
-        <a href="https://github.com/Mohit12836/vismart-channels-setup" target="_blank" class="flex flex-col items-center py-1 text-purple-200/80 hover:text-white transition">
+        <a href="https://github.com/Mohit12836/vismart-channels-setup" target="_blank" class="flex flex-col items-center py-1 text-slate-500 hover:text-slate-900 transition">
           <span class="text-base">📄</span>
           <span>GitHub</span>
         </a>
@@ -382,9 +361,9 @@
     </nav>
 
     <!-- MODAL POPUP FOR GUIDE / SETTINGS -->
-    <div id="modal-backdrop" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-      <div class="bg-[#140d30] border border-purple-500/30 rounded-2xl w-full max-w-sm p-5 space-y-3 relative shadow-2xl">
-        <button onclick="closeModal()" class="absolute top-3.5 right-3.5 w-7 h-7 rounded-full bg-purple-900/50 text-purple-300 flex items-center justify-center text-sm hover:bg-purple-800">✕</button>
+    <div id="modal-backdrop" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
+      <div class="bg-white border border-slate-200 rounded-2xl w-full max-w-sm p-5 space-y-3 relative shadow-2xl">
+        <button onclick="closeModal()" class="absolute top-3.5 right-3.5 w-7 h-7 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-sm hover:bg-slate-200 font-bold">✕</button>
         <div id="modal-content">
           <!-- Filled dynamically -->
         </div>
@@ -402,11 +381,9 @@
         englishTitle: "Love & Heartbreak Quotes",
         badge: "Channel 1",
         number: "1",
-        gradient: "from-rose-500/20 via-purple-600/30 to-indigo-600/30",
-        border: "border-pink-500/30",
         emoji: "🥀",
-        bgCover: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600&auto=format&fit=crop&q=80",
-        tags: "Love • Heartbreak • Yaad",
+        tagColor: "bg-pink-50 text-pink-700 border-pink-200",
+        tags: "Love • Heartbreak • अनकही बातें",
         username: "adhuribaatein.daily",
         name: "अधूरी बातें | Love & Heartbreak",
         bio: `🥀 कुछ बातें कभी कह नहीं पाए…
@@ -422,10 +399,8 @@
         englishTitle: "Self Respect Hindi",
         badge: "Channel 2",
         number: "2",
-        gradient: "from-amber-500/20 via-orange-600/30 to-purple-600/30",
-        border: "border-amber-500/30",
         emoji: "👑",
-        bgCover: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&auto=format&fit=crop&q=80",
+        tagColor: "bg-amber-50 text-amber-800 border-amber-200",
         tags: "Self Respect • Boundaries",
         username: "khudkikadar.daily",
         name: "खुद की कदर | Self Respect Hindi",
@@ -442,11 +417,9 @@
         englishTitle: "Overthinking Quotes",
         badge: "Channel 3",
         number: "3",
-        gradient: "from-indigo-500/20 via-blue-600/30 to-purple-600/30",
-        border: "border-indigo-500/30",
         emoji: "🌙",
-        bgCover: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&auto=format&fit=crop&q=80",
-        tags: "Overthinking • Feelings",
+        tagColor: "bg-indigo-50 text-indigo-700 border-indigo-200",
+        tags: "Overthinking • Feelings • Life",
         username: "mankiuljhan.daily",
         name: "मन की उलझन | Overthinking Quotes",
         bio: `🌙 जब दिमाग सोने नहीं देता…
@@ -462,10 +435,8 @@
         englishTitle: "Life Reality Hindi",
         badge: "Channel 4",
         number: "4",
-        gradient: "from-amber-600/20 via-red-600/30 to-purple-600/30",
-        border: "border-red-500/30",
         emoji: "⚡",
-        bgCover: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=600&auto=format&fit=crop&q=80",
+        tagColor: "bg-red-50 text-red-700 border-red-200",
         tags: "Life Reality • People • Lessons",
         username: "kadvisachai.daily",
         name: "कड़वी सच्चाई | Life Reality Hindi",
@@ -482,10 +453,8 @@
         englishTitle: "Peace & Healing",
         badge: "Channel 5",
         number: "5",
-        gradient: "from-emerald-500/20 via-teal-600/30 to-purple-600/30",
-        border: "border-emerald-500/30",
         emoji: "🌸",
-        bgCover: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop&q=80",
+        tagColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
         tags: "Peace • Healing • Positivity",
         username: "thodasukoon.daily",
         name: "थोड़ा सुकून | Peace & Healing",
@@ -500,24 +469,25 @@
 
     let currentChannel = CHANNELS[0];
 
-    // Render Home Channels
+    // Render Home Channels (Amazon/Meesho Clean Crisp White Cards)
     function renderHome() {
       const container = document.getElementById('channels-container');
       container.innerHTML = CHANNELS.map(ch => `
-        <div onclick="openChannel(${ch.id})" class="group cursor-pointer rounded-2xl p-3 bg-gradient-to-r ${ch.gradient} border ${ch.border} glass-card hover:border-purple-400/60 active:scale-98 transition-all flex items-center justify-between gap-3 shadow-md">
+        <div onclick="openChannel(${ch.id})" class="ecommerce-card ecommerce-card-hover cursor-pointer rounded-2xl p-3.5 flex items-center justify-between gap-3 transition">
           <div class="flex items-center gap-3 min-w-0">
-            <div class="w-12 h-12 rounded-xl bg-purple-950/80 border border-purple-500/30 flex items-center justify-center text-xl shrink-0 shadow">
+            <div class="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-2xl shrink-0 shadow-sm">
               <span>${ch.emoji}</span>
             </div>
             <div class="min-w-0">
               <div class="flex items-center gap-1.5">
-                <span class="w-4 h-4 rounded-full bg-purple-500/40 text-purple-200 text-[10px] font-bold flex items-center justify-center">${ch.number}</span>
-                <h3 class="text-sm font-bold text-white group-hover:text-purple-200 truncate">${ch.title}</h3>
+                <span class="w-4 h-4 rounded-full bg-slate-900 text-white text-[10px] font-extrabold flex items-center justify-center">${ch.number}</span>
+                <h3 class="text-sm font-extrabold text-slate-900 truncate">${ch.title}</h3>
               </div>
-              <p class="text-[11px] text-purple-300/80 truncate mt-0.5">${ch.tags}</p>
+              <p class="text-[11px] text-slate-500 font-medium truncate mt-0.5">${ch.englishTitle}</p>
+              <span class="inline-block mt-1 text-[10px] font-bold px-2 py-0.5 rounded border ${ch.tagColor}">${ch.tags}</span>
             </div>
           </div>
-          <div class="w-8 h-8 rounded-full bg-purple-500/20 group-hover:bg-purple-500/40 text-purple-200 flex items-center justify-center shrink-0 border border-purple-500/30 transition">
+          <div class="w-8 h-8 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center shrink-0 border border-slate-200">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
             </svg>
@@ -533,7 +503,7 @@
       currentChannel = ch;
 
       document.getElementById('detail-channel-badge').innerText = ch.badge;
-      document.getElementById('detail-avatar').innerHTML = `<span class="text-3xl">${ch.emoji}</span>`;
+      document.getElementById('detail-avatar').innerHTML = `<span>${ch.emoji}</span>`;
       document.getElementById('detail-title').innerText = ch.title;
       document.getElementById('detail-subtitle').innerText = ch.englishTitle;
       document.getElementById('detail-angle-badge').innerText = `🎯 ` + ch.tags;
@@ -559,17 +529,17 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Switch Tabs inside Detail
+    // Switch Tabs inside Detail (Meesho/Swiggy Segmented Switch)
     function switchTab(tab) {
       const tabs = ['copy', 'settings', 'audience'];
       tabs.forEach(t => {
         const btn = document.getElementById(`tab-btn-${t}`);
         const content = document.getElementById(`tab-content-${t}`);
         if (t === tab) {
-          btn.className = "py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow transition";
+          btn.className = "py-2 rounded-lg bg-white text-purple-700 shadow-sm transition";
           content.classList.remove('hidden');
         } else {
-          btn.className = "py-2 rounded-lg text-purple-300/80 hover:text-white transition";
+          btn.className = "py-2 rounded-lg text-slate-600 hover:text-slate-900 transition";
           content.classList.add('hidden');
         }
       });
@@ -584,7 +554,6 @@
       navigator.clipboard.writeText(text).then(() => {
         showToast(`${fieldName} कॉपी हो गया!`);
       }).catch(() => {
-        // Fallback for older browsers
         el.select();
         document.execCommand('copy');
         showToast(`${fieldName} कॉपी हो गया!`);
@@ -602,7 +571,7 @@
       clearTimeout(toastTimeout);
       toastTimeout = setTimeout(() => {
         toast.classList.add('hidden');
-      }, 2200);
+      }, 2000);
     }
 
     // Modal Manager
@@ -612,18 +581,18 @@
 
       if (type === 'guide') {
         content.innerHTML = `
-          <h3 class="text-sm font-bold text-white flex items-center gap-1.5">📖 अकाउंट बनाने की गाइड</h3>
-          <p class="text-xs text-purple-200 leading-relaxed">
-            1. <strong>Add Account</strong> → Instagram App में Profile पर जाएँ, यूजरनेम पर टैप करें और <em>Add Account → Create New Account</em> दबाएँ।<br><br>
+          <h3 class="text-sm font-extrabold text-slate-900 flex items-center gap-1.5">📖 अकाउंट बनाने की गाइड</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mt-2">
+            1. <strong>Add Account</strong>: Instagram App में Profile पर जाएँ, यूजरनेम पर टैप करें और <em>Add Account → Create New Account</em> दबाएँ।<br><br>
             2. <strong>One by One</strong>: पहले अधूरी बातें, फिर खुद की कदर, मन की उलझन, कड़वी सच्चाई, और अंत में थोड़ा सुकून।<br><br>
-            3. <strong>2-Factor Auth</strong>: हर अकाउंट में 2FA ऑन रखें ताकि अकाउंट सुरक्षित रहे।
+            3. <strong>2-Factor Auth</strong>: हर अकाउंट में 2FA ऑन रखें ताकि अकाउंट हमेशा सुरक्षित रहे।
           </p>
         `;
       } else if (type === 'settings-all') {
         content.innerHTML = `
-          <h3 class="text-sm font-bold text-white flex items-center gap-1.5">⚙️ अनिवार्य सेटिंग्स</h3>
-          <div class="text-xs text-purple-200 space-y-1.5">
-            <p>• <strong>Account:</strong> Professional → Creator</p>
+          <h3 class="text-sm font-extrabold text-slate-900 flex items-center gap-1.5">⚙️ अनिवार्य सेटिंग्स</h3>
+          <div class="text-xs text-slate-700 space-y-1.5 mt-2 font-medium">
+            <p>• <strong>Account Type:</strong> Professional → Creator</p>
             <p>• <strong>Category:</strong> Digital Creator</p>
             <p>• <strong>Privacy:</strong> Public (ON)</p>
             <p>• <strong>Display Category:</strong> ON</p>
